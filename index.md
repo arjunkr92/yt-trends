@@ -2,6 +2,11 @@
 <head>
 <title>Trends</title>
 </head>
+	<style>
+a:link {
+  color: brown;
+}
+	</style>
 <body>
 <div id="catagoryname">
 	<h1>India - Trending Music Videos</h1>
