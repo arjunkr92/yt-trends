@@ -8,6 +8,8 @@
 </div>
 <div id="trending"></div>
 <script  type='text/javascript' src='https://code.jquery.com/jquery-3.6.0.js'></script>
+<script  type='text/javascript' src='https://raw.githubusercontent.com/phstc/jquery-dateFormat/master/dist/jquery-dateformat.js'></script>
+	
 <script>
 var maxVideos = 30;
    $(document).ready(function(){
@@ -38,12 +40,13 @@ var maxVideos = 30;
 	  dislikes = numberWithCommas(item.statistics.dislikeCount);
 	  comment = numberWithCommas(item.statistics.commentCount);
 	  publishedAt = item.snippet.publishedAt;
+	  $.format.date(publishedAt, "dd/MM/yyyy hh:mm:ss a")
 	  var style = "";
 	  if(videTitle.toLowerCase().includes("himesh"))
 	    {
 	  	style = "style='background: green;color: white;' ";
             }
-          thumb  = "<img src='"+item.snippet.thumbnails.default.url+"' width='120' height='90'/>" ;
+          thumb  = "<img style='padding:2px;' src='"+item.snippet.thumbnails.default.url+"' width='120' height='90'/>" ;
           output += '<tr '+style+'><td>'+ ++i +'</td><td>'+thumb+'</td><td>'+videTitle+'</td><td>'+views+'</td><td>'+likes+'</td><td>'+dislikes+'</td><td>'+comment+'</td><td>'+publishedAt+'</td></tr>';
         })
 		output += '</tbody></table>';
