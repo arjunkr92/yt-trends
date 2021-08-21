@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+<title>Trends</title>
+</head>
+<body>
+<div id="catagoryname"><h1>India - Trending Music Videos</h1></div>
+      <div id="trending"></div>
+<script  type='text/javascript' src='https://code.jquery.com/jquery-3.6.0.js'></script>
+<script>
+var maxVideos = 30;
+   $(document).ready(function(){
+  $.get(
+    "https://www.googleapis.com/youtube/v3/videos",{
+      part: 'snippet,statistics',
+      chart: 'mostPopular',
+      kind: 'youtube#videoListResponse',
+      maxResults: maxVideos,
+      regionCode: 'IN',
+	  videoCategoryId: 10,
+	  hl: "kn-IN",
+      key: 'AIzaSyDOYHC18HA_vSAcs8a7yrxKiwBw1wLfAvk'},
+      function(data){
+        var output = '<table border=1><thead><tr><th>#</th><th>Title</th><th>Views</th><th>Likes</th><th>Dislikes</th><th>Comments</th><th>Published On</th></tr></thead><tbody>';
+        $.each(data.items, function(i, item){
+          console.log(item);
+		  vidId = item.id;
+          videTitle = item.snippet.title;
+          description = item.snippet.description;
+          thumb = item.snippet.thumbnails.high.url;
+          channelTitle = item.snippet.channelTitle;
+          videoDate = item.snippet.publishedAt;
+          Catagoryid = item.snippet.categoryId;
+          cID = item.snippet.channelId;
+		  views = numberWithCommas(item.statistics.viewCount);
+		  likes = numberWithCommas(item.statistics.likeCount);
+		  dislikes = numberWithCommas(item.statistics.dislikeCount);
+		  comment = numberWithCommas(item.statistics.commentCount);
+		  publishedAt = item.snippet.publishedAt;
+		  var style = "";
+		  if(videTitle.toLowerCase().includes("himesh"))
+		  {
+		  style = "style='background: green;color: white;' ";
+		  }
+          output += '<tr '+style+'><td>'+ ++i +'</td><td>'+videTitle+'</td><td>'+views+'</td><td>'+likes+'</td><td>'+dislikes+'</td><td>'+comment+'</td><td>'+publishedAt+'</td></tr>';
+        })
+		output += '</tbody></table>';
+		$('#trending').append(output);
+      }
+    );
+});
+
+function numberWithCommas(x) {
+    return x.toString().split('.')[0].length > 3 ? x.toString().substring(0,x.toString().split('.')[0].length-3).replace(/\B(?=(\d{2})+(?!\d))/g, ",") + "," + x.toString().substring(x.toString().split('.')[0].length-3): x.toString();
+} 
+</script>
+</body>
+</html>
