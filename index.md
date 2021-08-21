@@ -46,6 +46,7 @@ var maxVideos = 30;
 	    {
 	  	style = "style='background: green;color: white;' ";
             }
+	  videTitle = "<a href='https://www.youtube.com/watch?v="+vidId+"'>"+videTitle+"</a>";
           thumb  = "<img style='padding:2px;' src='"+item.snippet.thumbnails.default.url+"' width='120' height='90'/>" ;
           output += '<tr '+style+'><td>'+ ++i +'</td><td>'+thumb+'</td><td>'+videTitle+'</td><td>'+views+'</td><td>'+likes+'</td><td>'+dislikes+'</td><td>'+comment+'</td><td>'+publishedAt+'</td></tr>';
         })
