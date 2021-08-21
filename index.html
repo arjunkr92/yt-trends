@@ -40,7 +40,7 @@ var maxVideos = 30;
 	  dislikes = numberWithCommas(item.statistics.dislikeCount);
 	  comment = numberWithCommas(item.statistics.commentCount);
 	  publishedAt = item.snippet.publishedAt;
-	  $.format.date(publishedAt, "dd/MM/yyyy hh:mm:ss a")
+	  publishedAt = $.format.date(publishedAt, "dd/MM/yyyy hh:mm:ss a");
 	  var style = "";
 	  if(videTitle.toLowerCase().includes("himesh"))
 	    {
