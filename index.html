@@ -22,7 +22,7 @@ var maxVideos = 30;
 	  hl: "kn-IN",
       key: 'AIzaSyDOYHC18HA_vSAcs8a7yrxKiwBw1wLfAvk'},
       function(data){
-        var output = '<table border=1><thead><tr><th>#</th><th>Title</th><th>Views</th><th>Likes</th><th>Dislikes</th><th>Comments</th><th>Published On</th></tr></thead><tbody>';
+        var output = '<table border=1><thead><tr><th>#</th><th>Thumb</th><th>Title</th><th>Views</th><th>Likes</th><th>Dislikes</th><th>Comments</th><th>Published On</th></tr></thead><tbody>';
         $.each(data.items, function(i, item){
           console.log(item);
 	  vidId = item.id;
@@ -43,8 +43,8 @@ var maxVideos = 30;
 	    {
 	  	style = "style='background: green;color: white;' ";
             }
-          videTitle  = "<img src='"+item.snippet.thumbnails.default.url+"' width='120' height='90'/> <br>" + videTitle ;
-          output += '<tr '+style+'><td>'+ ++i +'</td><td>'+videTitle+'</td><td>'+views+'</td><td>'+likes+'</td><td>'+dislikes+'</td><td>'+comment+'</td><td>'+publishedAt+'</td></tr>';
+          thumb  = "<img src='"+item.snippet.thumbnails.default.url+"' width='120' height='90'/>" ;
+          output += '<tr '+style+'><td>'+ ++i +'</td><td>'+thumb+'</td><td>'+videTitle+'</td><td>'+views+'</td><td>'+likes+'</td><td>'+dislikes+'</td><td>'+comment+'</td><td>'+publishedAt+'</td></tr>';
         })
 		output += '</tbody></table>';
 		$('#trending').append(output);
