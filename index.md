@@ -49,7 +49,7 @@ var maxVideos = 30;
 	  var style = "";
 	  if(videTitle.toLowerCase().includes("himesh"))
 	    {
-	  	style = "style='background: green;color: white;' ";
+	  	style = "style='background: #d4ffdf;' ";
             }
 	  videTitle = "<a target='_blank' href='https://www.youtube.com/watch?v="+vidId+"'>"+videTitle+"</a>";
           thumb  = "<img style='padding:2px;' src='"+item.snippet.thumbnails.default.url+"' width='120' height='90'/>" ;
