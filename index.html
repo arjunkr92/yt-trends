@@ -24,7 +24,7 @@ var maxVideos = 30;
         $.each(data.items, function(i, item){
           console.log(item);
 		  vidId = item.id;
-          videTitle = item.snippet.title;
+          var videTitle = item.snippet.title;
           description = item.snippet.description;
           thumb = item.snippet.thumbnails.high.url;
           channelTitle = item.snippet.channelTitle;
