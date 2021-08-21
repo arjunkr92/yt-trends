@@ -3,8 +3,10 @@
 <title>Trends</title>
 </head>
 <body>
-<div id="catagoryname"><h1>India - Trending Music Videos</h1></div>
-      <div id="trending"></div>
+<div id="catagoryname">
+	<h1>India - Trending Music Videos</h1>
+</div>
+<div id="trending"></div>
 <script  type='text/javascript' src='https://code.jquery.com/jquery-3.6.0.js'></script>
 <script>
 var maxVideos = 30;
@@ -23,7 +25,7 @@ var maxVideos = 30;
         var output = '<table border=1><thead><tr><th>#</th><th>Title</th><th>Views</th><th>Likes</th><th>Dislikes</th><th>Comments</th><th>Published On</th></tr></thead><tbody>';
         $.each(data.items, function(i, item){
           console.log(item);
-		  vidId = item.id;
+	  vidId = item.id;
           videTitle = item.snippet.title;
           description = item.snippet.description;
           thumb = item.snippet.thumbnails.high.url;
@@ -32,16 +34,16 @@ var maxVideos = 30;
           Catagoryid = item.snippet.categoryId;
           cID = item.snippet.channelId;
 	  views = numberWithCommas(item.statistics.viewCount);
-		  likes = numberWithCommas(item.statistics.likeCount);
-		  dislikes = numberWithCommas(item.statistics.dislikeCount);
-		  comment = numberWithCommas(item.statistics.commentCount);
-		  publishedAt = item.snippet.publishedAt;
-		  var style = "";
-		  if(videTitle.toLowerCase().includes("himesh"))
-		  {
-		   	style = "style='background: green;color: white;' ";
-		  }
-		  videTitle  = "<img src='"+item.snippet.thumbnails.url+"' width='120' height='90'/> <br>" + videTitle ;
+	  likes = numberWithCommas(item.statistics.likeCount);
+	  dislikes = numberWithCommas(item.statistics.dislikeCount);
+	  comment = numberWithCommas(item.statistics.commentCount);
+	  publishedAt = item.snippet.publishedAt;
+	  var style = "";
+	  if(videTitle.toLowerCase().includes("himesh"))
+	    {
+	  	style = "style='background: green;color: white;' ";
+            }
+          videTitle  = "<img src='"+item.snippet.thumbnails.url+"' width='120' height='90'/> <br>" + videTitle ;
           output += '<tr '+style+'><td>'+ ++i +'</td><td>'+videTitle+'</td><td>'+views+'</td><td>'+likes+'</td><td>'+dislikes+'</td><td>'+comment+'</td><td>'+publishedAt+'</td></tr>';
         })
 		output += '</tbody></table>';
