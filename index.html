@@ -39,8 +39,9 @@ var maxVideos = 30;
 		  var style = "";
 		  if(videTitle.toLowerCase().includes("himesh"))
 		  {
-		  style = "style='background: green;color: white;' ";
+		   	style = "style='background: green;color: white;' ";
 		  }
+		  vidTitle = "<img src='"+item.snippet.thumbnails.url+"' width='120' height='90'/> <br>" + vidTitle;
           output += '<tr '+style+'><td>'+ ++i +'</td><td>'+videTitle+'</td><td>'+views+'</td><td>'+likes+'</td><td>'+dislikes+'</td><td>'+comment+'</td><td>'+publishedAt+'</td></tr>';
         })
 		output += '</tbody></table>';
