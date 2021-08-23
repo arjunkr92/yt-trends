@@ -31,7 +31,6 @@ var maxVideos = 30;
       function(data){
         var output = '<table border=1><thead><tr><th>#</th><th>Thumb</th><th>Title</th><th>Views</th><th>Likes</th><th>Dislikes</th><th>Comments</th><th>Published On</th></tr></thead><tbody>';
         $.each(data.items, function(i, item){
-          console.log(item);
 	  vidId = item.id;
           videTitle = item.snippet.title;
           description = item.snippet.description;
