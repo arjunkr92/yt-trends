@@ -39,6 +39,7 @@ $(document).ready(function() {
 				channelTitle = item.snippet.channelTitle;
 				videoDate = item.snippet.publishedAt;
 				Catagoryid = item.snippet.categoryId;
+				channelId = item.snippet.channelId;
 				cID = item.snippet.channelId;
 				views = numberWithCommas(item.statistics.viewCount);
 				likes = numberWithCommas(item.statistics.likeCount);
@@ -57,7 +58,7 @@ $(document).ready(function() {
 
 			$.get("https://www.googleapis.com/youtube/v3/channels", {
 					part: 'snippet,statistics',
-					id: '',
+					id: channelId,
 					key: 'AIzaSyDOYHC18HA_vSAcs8a7yrxKiwBw1wLfAvk'
 				},
 				function(data) {
