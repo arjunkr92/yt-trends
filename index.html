@@ -54,9 +54,8 @@ $(document).ready(function() {
 				videTitle = "<a target='_blank' href='https://www.youtube.com/watch?v=" + vidId + "'>" + videTitle + "</a>";
 				thumb = "<img style='padding:2px;' src='" + item.snippet.thumbnails.default.url + "' width='120' height='90'/>";
 				output += '<tr ' + style + '><td>' + ++i + '</td><td>' + thumb + '</td><td>' + videTitle + '</td><td>' + views + '</td><td>' + likes + '</td><td>' + dislikes + '</td><td>' + comment + '</td><td>' + publishedAt + '</td></tr>';
-			})
-
-			$.get("https://www.googleapis.com/youtube/v3/channels", {
+			
+				$.get("https://www.googleapis.com/youtube/v3/channels", {
 					part: 'snippet,statistics',
 					id: channelId,
 					key: 'AIzaSyDOYHC18HA_vSAcs8a7yrxKiwBw1wLfAvk'
@@ -64,6 +63,9 @@ $(document).ready(function() {
 				function(data) {
 					output += '<td>' + data.items[0].statistics.subscriberCount + '</td>';
 				});
+			})
+
+			
 			output += '</tbody></table>';
 			$('#trending').append(output);
 		}
