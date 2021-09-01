@@ -30,7 +30,7 @@ $(document).ready(function() {
 			key: 'AIzaSyDOYHC18HA_vSAcs8a7yrxKiwBw1wLfAvk'
 		},
 		function(data) {
-			var output = '<table border=1><thead><tr><th>#</th><th>Thumb</th><th>Title</th><th>Views</th><th>Likes</th><th>Dislikes</th><th>Comments</th><th>Published On</th><th>Subscribers</th></tr></thead><tbody>';
+			var output = '<table border=1><thead><tr><th>#</th><th>Thumb</th><th>Title</th><th>Views</th><th>Likes</th><th>Dislikes</th><th>Comments</th><th>Published On</th></tr></thead><tbody>';
 			$.each(data.items, function(i, item) {
 				vidId = item.id;
 				videTitle = item.snippet.title;
@@ -55,14 +55,14 @@ $(document).ready(function() {
 				thumb = "<img style='padding:2px;' src='" + item.snippet.thumbnails.default.url + "' width='120' height='90'/>";
 				output += '<tr ' + style + '><td>' + ++i + '</td><td>' + thumb + '</td><td>' + videTitle + '</td><td>' + views + '</td><td>' + likes + '</td><td>' + dislikes + '</td><td>' + comment + '</td><td>' + publishedAt + '</td></tr>';
 			
-				$.get("https://www.googleapis.com/youtube/v3/channels", {
+				/*$.get("https://www.googleapis.com/youtube/v3/channels", {
 					part: 'snippet,statistics',
 					id: channelId,
 					key: 'AIzaSyDOYHC18HA_vSAcs8a7yrxKiwBw1wLfAvk'
 				},
 				function(data) {
 					output += '<td>' + data.items[0].statistics.subscriberCount + '</td>';
-				});
+				});*/
 			})
 
 			
