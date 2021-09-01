@@ -55,14 +55,12 @@ var maxVideos = 30;
           output += '<tr '+style+'><td>'+ ++i +'</td><td>'+thumb+'</td><td>'+videTitle+'</td><td>'+views+'</td><td>'+likes+'</td><td>'+dislikes+'</td><td>'+comment+'</td><td>'+publishedAt+'</td></tr>';
         })
 	
-	 $.get(
-    "https://www.googleapis.com/youtube/v3/channels",{
+	$.get("https://www.googleapis.com/youtube/v3/channels",{
       part: 'snippet,statistics',
 	  id: '',
 	 key: 'AIzaSyDOYHC18HA_vSAcs8a7yrxKiwBw1wLfAvk'},
 	  function(data){
 	output += '<td>'+data.items[0].statistics.subscriberCount+'</td>';
-	  }
 	  });
 		output += '</tbody></table>';
 		$('#trending').append(output);
