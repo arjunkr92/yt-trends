@@ -25,7 +25,7 @@ $(document).ready(function() {
 			kind: 'youtube#videoListResponse',
 			maxResults: maxVideos,
 			regionCode: 'IN',
-			videoCategoryId: 10,
+			//videoCategoryId: 10,
 			hl: "kn-IN",
 			key: 'AIzaSyDOYHC18HA_vSAcs8a7yrxKiwBw1wLfAvk'
 		},
