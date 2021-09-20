@@ -16,7 +16,7 @@ a:link {
 <script  type='text/javascript' src='dateformat.min.js'></script>
 	
 <script>
-var maxVideos = 30;
+var maxVideos = 100;
 $(document).ready(function() {
 	$.get(
 		"https://www.googleapis.com/youtube/v3/videos", {
